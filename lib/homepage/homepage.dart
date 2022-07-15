@@ -70,98 +70,96 @@ class _TopState extends State<Top> {
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(22)),
         ),
-        child: Expanded(
-          child: Column(
-            children: [
-              Row(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const Text('Good Morning',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400, color: Colors.grey)),
+                TopIcon(image: 'assets/images/cloud.svg'),
+                Spacer(),
+                const Text('Hide Balance',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400, color: Colors.grey)),
+                
+                Switch(
+                  value: balanceswitch,
+                  onChanged: (val) {
+                    setState(() {
+                      balanceswitch = val;
+                    });
+                  },
+                  activeColor: CupertinoColors.activeGreen,
+                ),
+
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.end,
+                //   mainAxisSize: MainAxisSize.min,
+                //   children: [
+
+                //     // SizedBox(
+                //     //   width: MediaQuery.of(context).size.width * 0.2,
+                //     //   child: CupertinoSwitchListTile(
+                //     //       //title: Text('Hide Balance'),
+                //     //       value: false,
+                //     //       onChanged: (val) {}),
+                //     // ),
+                //   ],
+                // )
+              ],
+            ),
+            Spacer(),
+            Row(children: const [
+              Text('₦0.00',
+                  style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black)),
+              Spacer(),
+            ]),
+            Spacer(),
+            const Buttons(),
+            Spacer(),
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+              margin: const EdgeInsets.symmetric(vertical: 12),
+              //height: MediaQuery.of(context).size.height * 0.1,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24),
+                color: Color.fromRGBO(208, 224, 248, 1),
+              ),
+              child: Column(
                 children: [
-                  const Text('Good Morning',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400, color: Colors.grey)),
-                  TopIcon(image: 'assets/images/cloud.svg'),
-                  Spacer(),
-                  const Text('Hide Balance',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400, color: Colors.grey)),
-                  
-                  Switch(
-                    value: balanceswitch,
-                    onChanged: (val) {
-                      setState(() {
-                        balanceswitch = val;
-                      });
-                    },
-                    activeColor: CupertinoColors.activeGreen,
+                  Row(
+                    children: [
+                      const Text('Finish Account setup',
+                          style: TextStyle(
+                              color: Color.fromRGBO(50, 74, 126, 1),
+                              fontWeight: FontWeight.w600)),
+                      Spacer(),
+                      SvgPicture.asset('assets/images/forward-arrow.svg',
+                          color: Color.fromRGBO(50, 74, 126, 1)),
+                    ],
                   ),
-
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   mainAxisSize: MainAxisSize.min,
-                  //   children: [
-
-                  //     // SizedBox(
-                  //     //   width: MediaQuery.of(context).size.width * 0.2,
-                  //     //   child: CupertinoSwitchListTile(
-                  //     //       //title: Text('Hide Balance'),
-                  //     //       value: false,
-                  //     //       onChanged: (val) {}),
-                  //     // ),
-                  //   ],
-                  // )
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: const [
+                      Expanded(
+                          child: Text(
+                        'Please complete your KYC to transfer or withdraw',
+                        style:
+                            TextStyle(color: Color.fromRGBO(50, 74, 126, 1)),
+                      )),
+                    ],
+                  ),
                 ],
               ),
-              Spacer(),
-              Row(children: const [
-                Text('₦0.00',
-                    style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black)),
-                Spacer(),
-              ]),
-              Spacer(),
-              const Buttons(),
-              Spacer(),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
-                margin: const EdgeInsets.symmetric(vertical: 12),
-                //height: MediaQuery.of(context).size.height * 0.1,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  color: Color.fromRGBO(208, 224, 248, 1),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        const Text('Finish Account setup',
-                            style: TextStyle(
-                                color: Color.fromRGBO(50, 74, 126, 1),
-                                fontWeight: FontWeight.w600)),
-                        Spacer(),
-                        SvgPicture.asset('assets/images/forward-arrow.svg',
-                            color: Color.fromRGBO(50, 74, 126, 1)),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: const [
-                        Expanded(
-                            child: Text(
-                          'Please complete your KYC to transfer or withdraw',
-                          style:
-                              TextStyle(color: Color.fromRGBO(50, 74, 126, 1)),
-                        )),
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ));
   }
 }
